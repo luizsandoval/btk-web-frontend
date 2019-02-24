@@ -1,0 +1,10 @@
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: calc(100vh - 10vh);
+}
+
+btk-footer {
+    height: 10vh;
+}
