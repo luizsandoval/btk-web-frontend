@@ -1,3 +1,8 @@
 <div class="login-body">
-  <router-outlet></router-outlet>
+  <router-outlet *ngIf="!loading; else spinner"></router-outlet>
+ 
+  <ng-template #spinner>
+    <btk-loader-spinner></btk-loader-spinner>
+  </ng-template>
+
 </div>
