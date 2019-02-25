@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { AuthService } from '../core/auth/auth.service';
+
 @Component({
   selector: 'btk-login',
   templateUrl: './login.component.html',
@@ -11,7 +13,11 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   hide = true;
 
-  constructor(private _formBuilder: FormBuilder, private _router: Router) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    private _router: Router,
+    private _authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.buildForm();
@@ -25,6 +31,19 @@ export class LoginComponent implements OnInit {
   }
 
   login = () => {
-    this._router.navigate(['/home']);
+    this._authService
+      .authenticate(
+        this.loginForm.get('username').value,
+        this.loginForm.get('password').value
+      )
+      .subscribe(
+        () => {
+          this._router.navigate(['/home']);
+        },
+        err => {
+          console.log(err);
+          this.loginForm.reset();
+        }
+      );
   }
 }

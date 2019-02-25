@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
+import { ManageUsersService } from 'src/app/shared/services/manage-users.service';
 
 @Component({
   selector: 'btk-main-nav',
@@ -9,12 +12,18 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./main-nav.component.scss']
 })
 export class MainNavComponent {
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map(result => result.matches));
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches)
-    );
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private _manageUsersService: ManageUsersService,
+    private _router: Router
+  ) {}
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
-
+  logout = (): void => {
+    this._manageUsersService.logout();
+    this._router.navigate(['login']);
+  }
 }
