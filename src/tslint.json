@@ -12,6 +12,9 @@
             "element",
             "btk",
             "kebab-case"
-        ]
+        ],
+        "prefer-const": false,
+        "variable-name": false,
+        "no-unused-expression": false
     }
 }

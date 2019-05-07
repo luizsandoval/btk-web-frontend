@@ -1,0 +1,78 @@
+<section>
+    <div class="form-wrapper">
+      <form [formGroup]="registerForm" (submit)="register()">
+        
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input
+            formControlName="firstname"
+            placeholder="Please, enter your first name"
+            matInput
+          />
+          <mat-error *ngIf="registerForm.get('firstname').errors?.required"
+            >First name is required!</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input
+            formControlName="lastname"
+            placeholder="Please, enter your last name"
+            matInput
+          />
+          <mat-error *ngIf="registerForm.get('lastname').errors?.required"
+            >Last name is required!</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <mat-icon matSuffix>alternate_email</mat-icon>
+          <input
+            formControlName="email"
+            placeholder="Please, enter your e-mail"
+            matInput
+          />
+          <mat-error *ngIf="registerForm.get('email').errors?.required"
+          >E-mail is required!</mat-error
+          >
+          <mat-error *ngIf="registerForm.get('email').errors?.email"
+          >Please, enter a valid e-mail address!</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <mat-icon matSuffix>person</mat-icon>
+          <input
+            formControlName="username"
+            placeholder="Please, enter an username"
+            matInput
+          />
+          <mat-error *ngIf="registerForm.get('username').errors?.required"
+            >Username is required!</mat-error
+          >
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+            formControlName="password"
+            matInput
+            placeholder="Please, enter a password"
+            [type]="hide ? 'password' : 'text'"
+          />
+          <mat-icon matSuffix (click)="hide = !hide">{{
+            hide ? 'visibility_off' : 'visibility'
+          }}</mat-icon>
+          <mat-error *ngIf="registerForm.get('password').errors?.required"
+            >Password is required!</mat-error
+          >
+        </mat-form-field>
+  
+        <br />
+        <button [disabled]="registerForm.invalid" type="submit" mat-button>
+          Save and embrance a new world  
+        </button>
+      </form>
+    </div>
+  </section>
+  

@@ -1,0 +1,47 @@
+<section>
+  <div class="form-wrapper">
+    <form [formGroup]="loginForm" (submit)="login()">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <mat-icon matSuffix>person</mat-icon>
+        <input
+          formControlName="username"
+          placeholder="Please, enter your login"
+          matInput
+        />
+        <mat-error *ngIf="loginForm.get('username').errors?.required"
+          >Login is required!</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          formControlName="password"
+          matInput
+          placeholder="Please, enter your password"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <mat-icon matSuffix (click)="hide = !hide">{{
+          hide ? 'visibility_off' : 'visibility'
+        }}</mat-icon>
+        <mat-error *ngIf="loginForm.get('password').errors?.required"
+          >Password is required!</mat-error
+        >
+      </mat-form-field>
+
+      <br />
+      <button [disabled]="loginForm.invalid" type="submit" mat-button>
+        Login and start  
+      </button>
+
+      <p class="text-fancy">
+        <span class="complement-text">Or</span>
+      </p>
+
+      <button class="btn-secondary" (click)="navigateToRegister()" mat-button>
+          Register 
+      </button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: #50a7c2;
+  color: #ffffff;
+
+  ul.social-nav-ul {
+    display: inline-flex;
+    flex-direction: row;
+    list-style-type: none;
+
+    li {
+      margin: 10px;
+
+      .fab {
+        transition: 0.3s;
+        opacity: 0.5;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

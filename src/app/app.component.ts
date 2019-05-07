@@ -1,5 +1,10 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { Router, NavigationStart, NavigationEnd, NavigationCancel } from '@angular/router';
+import {
+  Router,
+  NavigationStart,
+  NavigationEnd,
+  NavigationCancel
+} from '@angular/router';
 
 @Component({
   selector: 'btk-root',
@@ -7,7 +12,6 @@ import { Router, NavigationStart, NavigationEnd, NavigationCancel } from '@angul
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
-
   loading: boolean;
 
   constructor(private _router: Router) {
@@ -18,10 +22,7 @@ export class AppComponent implements AfterViewInit {
     this._router.events.subscribe(e => {
       if (e instanceof NavigationStart) {
         this.loading = true;
-      } else if (
-        e instanceof NavigationEnd ||
-        e instanceof NavigationCancel
-      ) {
+      } else if (e instanceof NavigationEnd || e instanceof NavigationCancel) {
         this.loading = false;
       }
     });

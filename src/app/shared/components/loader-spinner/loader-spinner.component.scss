@@ -1,12 +1,13 @@
-mat-spinner {
-    color: #fff;
-}
 
-.container {
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+    
+    ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: aqua;
+    }
+
 }
 
-.spinner {
-    color: #fff;
-    caret-color: #fff;
-}

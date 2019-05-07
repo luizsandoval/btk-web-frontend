@@ -1,9 +1,11 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import url( 'https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons');
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons');
 @import '~@angular/material/theming';
-@import url(//fonts.googleapis.com/css?family=Open+Sans);
+
 * {
   box-sizing: border-box;
+  transition: 0.3s;
 }
 
 html,
@@ -13,11 +15,124 @@ body {
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+  font-family: 'Lora', sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lora', sans-serif;
 }
 
+a.unstyled-link {
+  color: #fff;
+}
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to top, #b7f8db, #50a7c2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.container {
+  padding: 30px;
+}
+
+.container-flex {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.centered-content {
+  justify-content: center;
+}
+
+.middle-content {
+  align-items: center;
+}
+
+@-webkit-keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+h1 {
+  font-size: 10rem;
+}
+
+.success-snackbar {
+  background: linear-gradient(to left, #b7f8db, #50a7c2);
+  color: #fff;
+
+  button {
+    color: #fff;
+    font-weight: bold;
+  }
+} 

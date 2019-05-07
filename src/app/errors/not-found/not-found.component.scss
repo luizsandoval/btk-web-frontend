@@ -1,11 +1,17 @@
-.container {
+.container-flex {
   height: 100vh;
+  a {
+    color: #222;
+
+    &:hover {
+      color: lightblue;
+    }
+  }
+
+  h1 {
+    font-size: 10rem;
+    animation: jello-horizontal 0.9s both;
+  }
+  
 }
 
-a {
-  color: #fff;
-}
-
-a:hover {
-  color: lightblue;
-}

@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorsModule } from './errors/errors.module';
-import { LoginModule } from './login/login.module';
 import { HttpInterceptorModule } from './core/auth/request.interceptor.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -21,11 +20,9 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     HttpInterceptorModule,
 
-    LoginModule,
     ErrorsModule,
     SharedModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

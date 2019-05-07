@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
 import { ManageUsersService } from 'src/app/shared/services/manage-users.service';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/shared/models/user';
 
 const API = environment.apiUrl;
 
@@ -23,5 +25,8 @@ export class AuthService {
           this._manageUsersService.setToken(authToken);
         })
       );
-  }
+  };
+
+  register = (user: User): Observable<User> =>
+    this._http.post<User>(`${API}/user`, user )
 }

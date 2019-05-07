@@ -1,7 +1,4 @@
-import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ManageUsersService } from 'src/app/shared/services/manage-users.service';
@@ -11,19 +8,18 @@ import { ManageUsersService } from 'src/app/shared/services/manage-users.service
   templateUrl: './main-nav.component.html',
   styleUrls: ['./main-nav.component.scss']
 })
-export class MainNavComponent {
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(map(result => result.matches));
+export class MainNavComponent implements OnInit {
+  mobileQuery: MediaQueryList;
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
     private _manageUsersService: ManageUsersService,
     private _router: Router
   ) {}
 
+  ngOnInit(): void {}
+
   logout = (): void => {
     this._manageUsersService.logout();
     this._router.navigate(['login']);
-  }
+  };
 }
