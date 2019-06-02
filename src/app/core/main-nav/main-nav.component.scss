@@ -17,10 +17,37 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  background: linear-gradient(to right, #B7F8DB, #50A7C2);
+  background: linear-gradient(to right, #b7f8db, #50a7c2);
 }
 
 .logo {
   height: 80%;
   width: auto;
+  cursor: pointer;
+}
+
+.mat-sidenav {
+  width: 300px;
+  background: #50a7c2;
+
+  .mat-divider {
+    margin: 0 20px; 
+    border-top-color: #fff;
+}
+  .mat-list-item {
+    color: #fff;
+  }
+  .mat-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    color: #fff;
+
+    img {
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+    }
+  }
+  
 }

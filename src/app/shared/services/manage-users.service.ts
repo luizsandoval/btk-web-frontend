@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import * as jtw_decode from 'jwt-decode';
+import { HttpClient } from '@angular/common/http';
 
 import { User } from '../models/user';
 import { TokenService } from 'src/app/core/token/token.service';
+import { environment } from 'src/environments/environment';
 
+const API = environment.apiUrl;
 @Injectable({ providedIn: 'root' })
 export class ManageUsersService {
   private _userSubject = new BehaviorSubject<User>(null);
   private _username = '';
 
-  constructor(private _tokenService: TokenService) {
+  constructor(private _tokenService: TokenService, private _http: HttpClient) {
     // first, we verify if there's a token
     // tslint:disable-next-line:no-unused-expression
     this._tokenService.hasToken() &&
@@ -57,5 +60,9 @@ export class ManageUsersService {
 
   getUsername() {
     return this._username;
+  }
+
+  getAllUsers = (): Observable<User[]> => {
+    return this._http.get<User[]>(`${API}/user`);
   }
 }

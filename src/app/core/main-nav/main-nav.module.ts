@@ -7,7 +7,8 @@ import {
   MatButtonModule,
   MatSidenavModule,
   MatIconModule,
-  MatListModule
+  MatListModule,
+  MatExpansionModule
 } from '@angular/material';
 
 import { MainNavComponent } from './main-nav.component';
@@ -19,14 +20,11 @@ import { MainNavComponent } from './main-nav.component';
     LayoutModule,
 
     MatToolbarModule,
-
     MatButtonModule,
-
     MatSidenavModule,
-
     MatIconModule,
-
-    MatListModule
+    MatListModule,
+    MatExpansionModule
   ],
   declarations: [MainNavComponent],
   exports: [MainNavComponent]

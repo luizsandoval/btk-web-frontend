@@ -20,6 +20,6 @@ export class MainNavComponent implements OnInit {
 
   logout = (): void => {
     this._manageUsersService.logout();
-    this._router.navigate(['login']);
-  };
+    this._router.navigate(['auth/login']);
+  }
 }

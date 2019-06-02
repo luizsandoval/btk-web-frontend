@@ -1,35 +1,11 @@
 section {
-    display: flex;
-    justify-content: center;
-
-    img {
-        filter: blur(5px);
-        opacity: 0.5;
-    }
-
-    .welcome-message {
-        align-self: center;
-        color:#fff;
-        font-size: 5em;
-        width:100%;
-        animation: appearsIn 0.3s top ease-in;
-        text-align: center;
-        background-color: rgba(222,222,222, 0.5);
-        position: absolute;
-    }
-
-    @keyframes appearsIn {
-        0% {
-            opacity: 0;
-        }
-        25% {
-            opacity: 0.25;
-        }
-        50%{
-            opacity: 0.5;
-        }
-        100%{
-            opacity: 1;
-        }
-    }
+  display: flex;
+  justify-content: center;
 }
+
+.hero {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    filter: blur(5px);
+  }
