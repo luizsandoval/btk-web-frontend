@@ -17,8 +17,8 @@
       position: relative;
       width: auto;
       height: 100%;
-      filter: blur(0.3em) grayscale(0.5);
       transition: visibility 0.4s;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
     }
 
     .overlap-text {

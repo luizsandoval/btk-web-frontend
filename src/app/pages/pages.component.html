@@ -1,6 +1,6 @@
 <btk-main-nav>
   <main>
-    <router-outlet></router-outlet>
+    <router-outlet (activate)="handleRouteChange($event)"></router-outlet>
   </main>
-  <btk-footer> </btk-footer>
+  <btk-footer *ngIf="showFooter"> </btk-footer>
 </btk-main-nav>

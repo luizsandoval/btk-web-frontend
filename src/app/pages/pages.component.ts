@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
     styleUrls: ['./pages.component.scss']
 })
 
-export class PagesComponent {}
+export class PagesComponent {
+
+    showFooter = false;
+
+    handleRouteChange = (event) => {
+        console.log(event);
+    }
+}
