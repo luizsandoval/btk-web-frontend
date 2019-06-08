@@ -1,0 +1,78 @@
+.container-flex {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: row-reverse;
+  padding: 0px;
+
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    &.hero-half {
+      min-width: 60vw;
+      background-repeat: no-repeat;
+      background-position: right;
+      background-attachment: fixed;
+      background-size: contain;
+
+      & > div.overlap-text {
+        align-self: flex-end;
+        & > h1 {
+          text-align: end;
+          font-size: 5em;
+          color: #fff;
+          animation: blink 2s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+}
+
+button:disabled {
+  background: lightgrey;
+}
+
+.form-wrapper {
+  padding: 30px;
+  background: #fff;
+}
+
+p.text-fancy {
+  content: '';
+  line-height: 0.5;
+  text-align: center;
+  position: relative;
+  height: 5px;
+  border-top: 1px solid #b7f8db;
+  top: 0;
+  width: auto;
+  padding: 0 20px;
+
+  .complement-text {
+    text-align: center;
+    font-size: smaller;
+    margin: 10px 0;
+    background: #fff;
+    padding: 10px;
+    color: #50a7c2;
+
+    &::before {
+      right: 100%;
+      margin-right: 15px;
+    }
+    &::after {
+      left: 100%;
+      margin-left: 15px;
+    }
+  }
+}

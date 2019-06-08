@@ -1,4 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit
+} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
@@ -6,9 +12,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent implements OnInit {
-  @ViewChild('image') img: ElementRef<HTMLElement>;
-  @ViewChild('containerFlex') containerFlex: ElementRef<HTMLElement>;
+export class AuthComponent implements OnInit, AfterViewInit {
+  @ViewChild('heroHalf') heroHalf: ElementRef<HTMLElement>;
 
   isMobileDevice = false;
   imgSrcs = [
@@ -22,18 +27,26 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() {
     this.isMobile();
+  }
+
+  ngAfterViewInit(): void {
+    this.changeImage();
     if (!this.isMobileDevice) {
       setInterval(() => this.changeImage(), 10000);
     }
   }
 
   changeImage = () => {
-    this.img.nativeElement.setAttribute('src', this.getRandomImage());
-  }
+    this.heroHalf.nativeElement.style[
+      'backgroundImage'
+    ] = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${this.getRandomImage()})`;
+  };
 
   getRandomImage = (): string =>
     this.imgSrcs[Math.floor(Math.random() * this.imgSrcs.length)]
 
-  isMobile = () => this._query.observe([Breakpoints.Small, Breakpoints.XSmall]).subscribe((res) => this.isMobileDevice = res.matches);
-
+  isMobile = () =>
+    this._query
+      .observe([Breakpoints.Small, Breakpoints.XSmall])
+      .subscribe(res => (this.isMobileDevice = res.matches))
 }

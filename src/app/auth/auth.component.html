@@ -1,10 +1,11 @@
-<div class="container-flex" #containerFlex>
-  <section class="hero-half" *ngIf="!isMobileDevice"> 
-    <img #image src="https://cdn.zmescience.com/wp-content/uploads/2015/04/Girl-reading-book-.jpg" alt="person reading a book" class="brand">
-    <div class="overlap-text">
-      <h1>Reading is awesome</h1>
-    </div>
-  </section>
+<div class="container-flex">
+  <ng-container *ngIf="!isMobileDevice">
+    <section class="hero-half" #heroHalf>
+      <div class="overlap-text">
+        <h1>Reading is awesome</h1>
+      </div>
+    </section>
+  </ng-container>
   <section>
     <router-outlet></router-outlet>
   </section>
